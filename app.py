@@ -1,14 +1,16 @@
-from flask import Flask, request, jsonify, render_template
-import requests
+import json
+from flask import Flask, render_template
 
 app = Flask(__name__)
 
-# Assuming you have a User model and a database setup
-# from your_project import User, db
+# Load client secrets
+with open('client_secret.json') as f:
+    client_secrets = json.load(f)
 
 @app.route('/')
 def login():
-    return render_template('login.html')
+    # Pass the client ID to the template
+    return render_template('login.html', client_id=client_secrets['web']['client_id'])
 
 @app.route('/login', methods=['POST'])
 def traditional_login():
@@ -19,17 +21,22 @@ def traditional_login():
 
 @app.route('/glogin', methods=['POST'])
 def google_login():
-    # Validate the Google token on the server side
-    token = request.json.get('token')
-    # Normally you would validate the token and find or create a user in your own db
-    # For example:
-    # user = User.query.filter_by(email=email).first()
-    # if not user:
-    #     user = User(email=email)
-    #     db.session.add(user)
-    #     db.session.commit()
-    # return user info or a session token as needed
-    return jsonify({'status': 'success', 'message': 'Logged in with Google successfully'})
+    # ... your existing code ...
+
+    auth_code = request.json.get('code')
+
+    # Exchange auth code for access token, refresh token, and ID token
+    credentials = {
+        'code': auth_code,
+        'client_id': client_secrets['web']['client_id'],
+        'client_secret': client_secrets['web']['client_secret'],
+        'redirect_uri': 'postmessage',
+        'grant_type': 'authorization_code'
+    }
+
+    # POST request to Google's token URI
+    r = requests.post(client_secrets['web']['token_uri'], data=credentials)
+    token_response = r.json()
 
 if __name__ == '__main__':
     app.run(debug=True)
