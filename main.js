@@ -43,3 +43,18 @@ function initGoogleAuth() {
 window.onload = function() {
     initGoogleAuth();
 };
+
+document.addEventListener("DOMContentLoaded", function(){
+    const form = document.querySelector('form');
+    form.onsubmit = async (e) => {
+        e.preventDefault();
+        const formData = new FormData(form);
+        const response = await fetch('/register', {
+            method: 'POST',
+            body: formData
+        });
+        if (response.redirected) {
+            window.location.href = response.url;
+        }
+    };
+});
