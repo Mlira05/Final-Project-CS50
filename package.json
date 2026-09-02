@@ -13,7 +13,8 @@
     "d1:create": "wrangler d1 create cs50-personal-finances-db",
     "d1:migrate:local": "wrangler d1 migrations apply cs50-personal-finances-db --local",
     "d1:migrate:remote": "wrangler d1 migrations apply cs50-personal-finances-db --remote",
-    "deploy": "npm run build && wrangler pages deploy dist --project-name cs50-personal-finances"
+    "deploy": "npm run build && wrangler pages deploy dist --project-name cs50-personal-finances",
+    "finalize:cs50": "node scripts/finalize-cs50.mjs"
   },
   "dependencies": {
     "clsx": "^2.1.1",

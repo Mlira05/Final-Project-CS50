@@ -9,9 +9,9 @@ Mostrar em tela:
 - **My Personal Finances**
 - **Matheus Lira**
 - **GitHub:** Mlira05
-- **edX:** [PREENCHER USUÁRIO EDX]
-- **[PREENCHER CIDADE], Brasil**
-- **Gravado em [PREENCHER DATA]**
+- **edX:** Mlira05
+- **Rio de Janeiro, Brasil**
+- **Gravado em 2 de setembro de 2026**
 
 Narração: “Este é o My Personal Finances, meu projeto final para o CS50.”
 
@@ -59,8 +59,7 @@ Narração: “Para a demonstração do CS50, criei uma implantação isolada co
 
 ## Checklist antes de publicar
 
-- Substituir os três campos `[PREENCHER ...]` da cartela.
 - Manter o vídeo com no máximo 3 minutos.
 - Confirmar que somente dados sintéticos aparecem.
 - Publicar no YouTube como **público** ou **não listado**, nunca privado.
-- Colar a URL na linha `Video Demo` do `README.md` antes do `submit50`.
+- Depois de publicar, executar `npm run finalize:cs50 -- "URL_DO_VIDEO"` para registrar a URL no README e validar o projeto.
