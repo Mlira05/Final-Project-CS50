@@ -1,0 +1,15 @@
+# CS50 Final Project — wrangler.toml: Project entry point, styling, or build configuration.
+# AI assistance citation: OpenAI Codex helped migrate, document, and review this file for the CS50 final project; product decisions and final responsibility remain with Matheus Lira.
+# CS50 deployment is intentionally isolated from the author's private production app.
+name = "cs50-personal-finances"
+compatibility_date = "2026-05-06"
+pages_build_output_dir = "dist"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "cs50-personal-finances-db"
+database_id = "17c26e37-19a8-4b21-9122-4702a936c268"
+migrations_dir = "migrations"
+
+[vars]
+ALLOW_CLOUDFLARE_ACCESS = "false"

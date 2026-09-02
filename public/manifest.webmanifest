@@ -1,0 +1,17 @@
+{
+  "name": "Minhas Financas",
+  "short_name": "Financas",
+  "description": "Aplicação demonstrativa para planejamento e acompanhamento financeiro pessoal.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#050814",
+  "theme_color": "#050814",
+  "icons": [
+    {
+      "src": "/brand/app-icon.png",
+      "sizes": "1254x1254",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

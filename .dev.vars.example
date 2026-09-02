@@ -1,0 +1,11 @@
+APP_PIN=change-this-local-pin
+SESSION_SECRET=change-this-local-session-secret
+ALLOW_CLOUDFLARE_ACCESS=false
+CUMBUCA_MCP_URL=https://mcp.cumbuca.com/mcp
+CUMBUCA_MCP_ACCESS_TOKEN=replace-with-cloudflare-secret
+CUMBUCA_MCP_REFRESH_TOKEN=optional-refresh-token-secret
+CUMBUCA_MCP_CLIENT_ID=optional-oauth-client-id
+CUMBUCA_MCP_TOKEN_URL=https://idc.cumbuca.com/realms/cumbuca-mcp/protocol/openid-connect/token
+CUMBUCA_AUTHORIZATION_URL=optional-cumbuca-authorization-url
+CUMBUCA_REDIRECT_URI=http://127.0.0.1:8788/api/openfinance/callback
+OPEN_FINANCE_TOKEN_ENCRYPTION_KEY=strong-stable-local-encryption-key
